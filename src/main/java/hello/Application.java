@@ -21,10 +21,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		//cf();
 		ExploreCollection collection = new ExploreCollection();
-		/*collection.mapExample();
-		collection.filterMapExample();
-		collection.forEachExample();*/
-		collection.reduceExample();
+		collection.partitionCollectorExample();
 	}
 
 	private static void cf() {

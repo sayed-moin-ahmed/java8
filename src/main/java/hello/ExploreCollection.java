@@ -2,6 +2,7 @@ package hello;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -75,6 +76,28 @@ public class ExploreCollection {
                 .reduce(boByAge).get();
         print.accept(result);
     }
+
+    /**
+     * Partitioning of data in stream
+     */
+    public void partitionExample(){
+         Map<Boolean, List<Person>> result= createPeople()
+                .stream()
+                .collect(Collectors.partitioningBy(e->e.getAge()>30));
+        print.accept(result);
+    }
+
+    /**
+     * Partitioning of data in stream with collectors.
+     */
+    public void partitionCollectorExample(){
+        Map<Boolean, Long> result= createPeople()
+                .stream()
+                .collect(Collectors.partitioningBy(e->e.getAge()>30,Collectors.counting()));
+        print.accept(result);
+    }
+
+
 }
 
 
