@@ -30,6 +30,7 @@ dependency-reduced-pom.xml
 *.idea
 
 README.html
+.springBeans
 *.xd
 *.lck
 .travis.yml
@@ -68,3 +69,13 @@ LICENSE.code.txt
 LICENSE.writing.txt
 README.adoc
 test/run.sh
+.springBeans
+*.xd
+*.lck
+*.class
+*.lock
+*.bin
+*.properties
+*.xml
+*.pb
+*.iml
