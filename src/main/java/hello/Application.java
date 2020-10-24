@@ -21,7 +21,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		//cf();
 		ExploreCollection collection = new ExploreCollection();
-		collection.partitionCollectorExample();
+		collection.rc();
 	}
 
 	private static void cf() {

@@ -1,12 +1,12 @@
 package hello;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class ExploreCollection {
 
@@ -95,6 +95,25 @@ public class ExploreCollection {
                 .stream()
                 .collect(Collectors.partitioningBy(e->e.getAge()>30,Collectors.counting()));
         print.accept(result);
+    }
+
+    /**
+     * Race Condition
+     * Shared mutability
+     *  List<Integer> numbers = new ArrayList<>();
+     */
+    public void rc(){
+        List<Integer> numbers = new ArrayList<>();
+        var result  = List.of(1,2,3,4,5,6,7,8,9,10);
+        result
+                .parallelStream()
+                .forEach(number->addToList(numbers,number));
+        print.accept(numbers);
+    }
+
+    private void addToList(List<Integer> numbers, Integer number) {
+        print.accept("Thread: "+Thread.currentThread());
+        numbers.add(number);
     }
 
 
