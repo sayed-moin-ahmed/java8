@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 public class ExploreCollection {
 
@@ -93,7 +93,7 @@ public class ExploreCollection {
     public void partitionCollectorExample(){
         Map<Boolean, Long> result= createPeople()
                 .stream()
-                .collect(Collectors.partitioningBy(e->e.getAge()>30,Collectors.counting()));
+                .collect(Collectors.partitioningBy(e->e.getAge()>30, counting()));
         print.accept(result);
     }
 
@@ -116,6 +116,35 @@ public class ExploreCollection {
         numbers.add(number);
     }
 
+    /**
+     * Grouping By Example.
+     */
+    public void groupingByExample(){
+        Map<String,List<Person>> result = createPeople()
+                .stream()
+                .collect(groupingBy(Person::getName));
+        print.accept(result);
+    }
+
+    /**
+     * Grouping By counting Collectors.
+     */
+    public void groupingByCountingExample(){
+        Map<String, Long> result = createPeople()
+                .stream()
+                .collect(groupingBy(Person::getName, counting()));
+        print.accept(result);
+    }
+
+    /**
+     * Grouping By  mapping Collectors.
+     */
+    public void groupingByMappingExample(){
+        Map<String, List<Integer>> result = createPeople()
+                .stream()
+                .collect(groupingBy(Person::getName, mapping(Person::getAge,toList())));
+        print.accept(result);
+    }
 
 }
 

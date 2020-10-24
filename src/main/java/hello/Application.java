@@ -21,7 +21,8 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		//cf();
 		ExploreCollection collection = new ExploreCollection();
-		collection.rc();
+		collection.groupingByMappingExample();
+		;
 	}
 
 	private static void cf() {
