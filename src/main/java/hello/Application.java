@@ -38,6 +38,4 @@ public class Application {
 	static Function<Throwable,String> throwableFunction = throwable-> {System.out.println(throwable); return "FAILED" ;};
 	static Function <CompletableFuture,CompletableFuture> fcf= cf->cf.thenApply(function).exceptionally(throwableFunction);
 
-
-
 }

@@ -1,9 +1,16 @@
 package hello;
 
+import hello.functionalprogrammingpatterns.MemberCard;
+
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.Random;
+
+import static java.util.Optional.ofNullable;
 
 public class Customer {
 
+    private MemberCard memberCard;
     private int id;
     private String name;
 
@@ -11,6 +18,11 @@ public class Customer {
         Integer value = new Random().nextInt();
         this.id = value;
         this.name = String.valueOf(value);
+    }
+
+
+    public Customer(MemberCard memberCard){
+        this.memberCard = memberCard;
     }
 
     public int getId() {
@@ -27,5 +39,10 @@ public class Customer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+
+    public Optional<MemberCard> getMemberCard() {
+        return ofNullable(memberCard);
     }
 }
