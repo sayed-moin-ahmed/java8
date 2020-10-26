@@ -14,8 +14,9 @@ public class UserDto {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public UserDto setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 
     @Override
