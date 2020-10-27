@@ -1,4 +1,6 @@
-package hello;
+package hello.functionalprogramming;
+
+import hello.reactivestream.Person;
 
 import java.util.*;
 import java.util.function.BinaryOperator;

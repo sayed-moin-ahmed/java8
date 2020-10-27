@@ -1,4 +1,4 @@
-package hello;
+package hello.reactivestream;
 
 public class Person {
 

@@ -1,4 +1,4 @@
-package hello;
+package hello.reactivestream;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

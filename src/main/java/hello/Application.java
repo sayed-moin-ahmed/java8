@@ -15,7 +15,7 @@ public class Application {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		SpringApplication.run(Application.class, args);
-		new LockConcept().invoke();
+		new CustomTask.LockConcept().invoke();
 		//cf();
 		//ExploreCollection collection = new ExploreCollection();
 		//collection.groupingByMappingExample();

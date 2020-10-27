@@ -1,6 +1,8 @@
-package hello;
+package hello.executorservice;
 
-import org.springframework.boot.SpringApplication;
+import hello.reactivestream.Customer;
+import hello.reactivestream.GreetingWebClient;
+import hello.reactivestream.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ public class ExecutorServiceSample {
         }
     }
 
-    private  Order enrich(Order order) {
+    private Order enrich(Order order) {
         return order.setEnrich(order.getId());
     }
 

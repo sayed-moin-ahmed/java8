@@ -1,6 +1,6 @@
 package hello.functionalprogrammingpatterns;
 
-import hello.Customer;
+import hello.reactivestream.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
