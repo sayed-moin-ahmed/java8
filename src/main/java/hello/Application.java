@@ -1,9 +1,12 @@
 package hello;
 
+import hello.functionalprogrammingpatterns.CustomerWriter;
+import hello.functionalprogrammingpatterns.FileExporter;
 import hello.locks.CustomTask;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.function.Function;
@@ -13,12 +16,14 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) throws InterruptedException, ExecutionException {
+	public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
 		SpringApplication.run(Application.class, args);
-		new CustomTask.LockConcept().invoke();
+		//new CustomTask.LockConcept().invoke();
 		//cf();
 		//ExploreCollection collection = new ExploreCollection();
 		//collection.groupingByMappingExample();
+		CustomerWriter cw = new CustomerWriter();
+		new FileExporter().exportFile("Test",cw::writeOrders);
 	}
 
 	private static void cf() {
