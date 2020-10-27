@@ -3,6 +3,7 @@ package hello.functionalprogramming;
 import hello.reactivestream.Person;
 
 import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -14,7 +15,7 @@ public class ExploreCollection {
 
     private List<Person> createPeople() {
         return List.of(
-          new Person(20,"Sara"),
+                new Person(20,"Sara"),
                 new Person(20,"Sara"),
                 new Person(22,"Sara"),
                 new Person(20,"Bod"),
@@ -83,7 +84,7 @@ public class ExploreCollection {
      * Partitioning of data in stream
      */
     public void partitionExample(){
-         Map<Boolean, List<Person>> result= createPeople()
+        Map<Boolean, List<Person>> result= createPeople()
                 .stream()
                 .collect(Collectors.partitioningBy(e->e.getAge()>30));
         print.accept(result);
@@ -161,7 +162,15 @@ public class ExploreCollection {
         print.accept(result);
     }
 
+    public void test(String msg,Consumer<String> consumer){
+        consumer.accept(msg);
+    }
+
+    public void sum(int t, int u, BiConsumer<Integer, Integer> consumer){
+        consumer.accept(t,u);
+    }
 
 }
+
 
 

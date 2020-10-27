@@ -1,14 +1,16 @@
 package hello;
 
+import hello.functionalprogramming.ExploreCollection;
+import hello.functionalprogramming.LambdaTest;
 import hello.functionalprogrammingpatterns.CustomerWriter;
 import hello.functionalprogrammingpatterns.FileExporter;
-import hello.locks.CustomTask;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,12 +20,10 @@ public class Application {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
 		SpringApplication.run(Application.class, args);
-		//new CustomTask.LockConcept().invoke();
-		//cf();
-		//ExploreCollection collection = new ExploreCollection();
-		//collection.groupingByMappingExample();
-		CustomerWriter cw = new CustomerWriter();
-		new FileExporter().exportFile("Test",cw::writeOrders);
+		ExploreCollection collection = new ExploreCollection();
+		LambdaTest lt = new LambdaTest();
+		collection.test("Hello",lt::show);
+		collection.sum(1,2,lt::add);
 	}
 
 	private static void cf() {
