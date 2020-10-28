@@ -10,4 +10,8 @@ public class LambdaTest{
         System.out.println(t+u);
     }
 
+    public String msg(int value){
+        return String.format(" Hello %s",value);
+    }
+
 }

@@ -3,10 +3,7 @@ package hello.functionalprogramming;
 import hello.reactivestream.Person;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
@@ -162,12 +159,20 @@ public class ExploreCollection {
         print.accept(result);
     }
 
-    public void test(String msg,Consumer<String> consumer){
+    public void consumerTest(String msg,Consumer<String> consumer){
         consumer.accept(msg);
     }
 
-    public void sum(int t, int u, BiConsumer<Integer, Integer> consumer){
-        consumer.accept(t,u);
+    public void biConsumerTest(int t, int u, BiConsumer<Integer, Integer> biConsumer){
+        biConsumer.accept(t,u);
+    }
+
+    public String functionTest(Integer value, Function<Integer, String> function){
+        return function.apply(value);
+    }
+
+    public String biFunctionTest(int a, int b, BiFunction<Integer, Integer, String> biFunction){
+        return biFunction.apply(a,b);
     }
 
 }

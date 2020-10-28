@@ -22,8 +22,12 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		ExploreCollection collection = new ExploreCollection();
 		LambdaTest lt = new LambdaTest();
-		collection.test("Hello",lt::show);
-		collection.sum(1,2,lt::add);
+		collection.consumerTest("Hello",lt::show);
+		collection.biConsumerTest(1,2,lt::add);
+		System.out.println(collection.functionTest(1,lt::msg));
+		collection.groupingByMappingExample();
+		CustomerWriter cw = new CustomerWriter();
+		new FileExporter().exportFile("Test",cw::writeOrders);
 	}
 
 	private static void cf() {
