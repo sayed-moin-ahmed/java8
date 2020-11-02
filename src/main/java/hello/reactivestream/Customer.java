@@ -1,5 +1,6 @@
 package hello.reactivestream;
 
+import hello.functionalprogramming.Streamable;
 import hello.functionalprogrammingpatterns.MemberCard;
 
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import java.util.Random;
 
 import static java.util.Optional.ofNullable;
 
-public class Customer {
+public class Customer implements Streamable {
 
     private MemberCard memberCard;
     private int id;
@@ -44,5 +45,10 @@ public class Customer {
 
     public Optional<MemberCard> getMemberCard() {
         return ofNullable(memberCard);
+    }
+
+    @Override
+    public Customer get() {
+        return this;
     }
 }

@@ -1,16 +1,18 @@
 package hello.functionalprogramming;
 
+import hello.reactivestream.Customer;
 import hello.reactivestream.Person;
 
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
 public class ExploreCollection {
 
-    private List<Person> createPeople() {
+    public  List<Person> createPeople() {
         return List.of(
                 new Person(20,"Sara"),
                 new Person(20,"Sara"),
@@ -174,6 +176,17 @@ public class ExploreCollection {
     public String biFunctionTest(int a, int b, BiFunction<Integer, Integer, String> biFunction){
         return biFunction.apply(a,b);
     }
+
+    /**
+     * Sample demo to crate Stream of Object.
+     * Stream - Interface
+     * @return
+     */
+    public Stream getStream(Streamable type){
+        return  Stream.builder().add(type).build() ;
+    }
+
+
 
 }
 
