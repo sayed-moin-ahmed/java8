@@ -2,11 +2,11 @@ package sample.functionalprogrammingpatterns;
 
 import lombok.SneakyThrows;
 
+import java.io.IOException;
 import java.io.Writer;
 
 public class CustomerWriter {
-   @SneakyThrows
-    public void writeOrders(Writer writer)  {
+    public void writeOrders(Writer writer) throws IOException {
         writer.write("Hello");
     }
 }

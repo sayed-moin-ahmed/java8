@@ -25,7 +25,7 @@ public class Application {
 		System.out.println(collection.functionTest(1,lt::msg));
 		collection.groupingByMappingExample();
 		CustomerWriter cw = new CustomerWriter();
-		new FileExporter().exportFile("Test",cw::writeOrders);
+		//new FileExporter().exportFile("Test",cw::writeOrders);
 	}
 
 	private static void cf() {
